@@ -1,0 +1,104 @@
+@charset "UTF-8";
+ 	.login {
+          margin: 0;
+          padding: 0;
+          height: 100vh; /* 视口高度100% */
+		  display:flex;
+          justify-content: center; /* 水平居中 */
+          align-items: center; /* 垂直居中 */
+          background-color: #8cc4ff;
+}
+	.center {
+          width: 50vw; /* 视口宽度50% */
+          height: 50vh; /* 视口高度50% */
+          background-color: #ffffff;
+          border: 2px solid #333;
+          box-sizing: border-box; /* 包含边框计算尺寸 */
+		  text-align:center
+
+}
+    .top{
+          position: fixed;
+          top: 0;
+          width: 100%;
+          background: #4069ff;
+          color: white;
+          padding: 15px;
+          
+          z-index: 100; /* 确保在内容上层 */
+        }
+     .daohang{
+     	display:flex;
+     	justify-content:space-between;
+     	font-size:30px;
+     	
+     
+     }
+     
+     .page {
+          margin: 0;
+          padding: 0;
+          height: 60vh; /* 视口高度100% */
+          
+          justify-content: center; /* 水平居中 */
+          align-items: center; /* 垂直居中 */
+     	  background: #ffffff;
+     	  overflow-y:auto;
+     	  margin-top:200px;
+     	  text-align:center
+     }
+     .data {
+     	text-align:left;
+     	font-size:30px;
+     
+     }
+     table {            
+	width: 50%;            
+	border-collapse: collapse;            
+	margin: 20px auto;        
+	}        
+	th, td {            
+	border: 1px solid #ddd;            
+	padding: 8px;            
+	text-align: center;        
+	}        
+	th {            
+	background-color: #f2f2f2;        
+	}
+    .pagein {
+      margin: 0;
+      padding: 0;
+      height: 60vh; /* 视口高度100% */
+      display:flex;
+      justify-content: center; /* 水平居中 */
+      align-items: center; /* 垂直居中 */
+   	  background: #ffffff;
+   	  overflow-y:auto;
+   	  margin-top:200px;
+
+     }    
+        
+     /* 按钮整体样式 */
+.button {
+  padding: 6px 12px;       /* 内边距 */
+  border: 1px solid #ccc;  /* 边框 */
+  border-radius: 4px;      /* 圆角 */
+  background-color: #f8f9fa; /* 背景色 */
+  cursor: pointer;         /* 鼠标悬停变手型 */
+  display: inline-flex;    /* 让图标和文字水平对齐 */
+  align-items: center;     /* 垂直居中 */
+}
+
+/* 图标与文字的间距 */
+.button i {
+  margin-right: 5px;
+}
+        
+        
+        
+        
+        
+        
+        
+        
+        
