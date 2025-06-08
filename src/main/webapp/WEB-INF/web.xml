@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app
+        version="4.0"
+        xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+        xmlns:javaee="http://xmlns.jcp.org/xml/ns/javaee"
+        xmlns:xml="http://www.w3.org/XML/1998/namespace"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+
+
+  <!--    springmvc的前端控制器：DispatcherServlet-->
+  <servlet>
+    <servlet-name>DispatcherServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+
+    <!--  加载spring-mvc配置文件-->
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:spring-mvc.xml</param-value>
+    </init-param>
+
+    <!-- 设置startup参数为整数，使应用在启动时，就完成对servlet的实例化和初始化操作-->
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>DispatcherServlet</servlet-name>
+    <!--     匹配路径(拦截路径) /会匹配到不带后缀的访问路径 /*会匹配到所有的访问路径-->
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+</web-app>
