@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <title>教师管理系统_登录</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/mian.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/main.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/fontawesome.min.css">
 </head>
 <body class="login">
@@ -16,11 +16,10 @@
 </div>
 <div class = "center">
     <p style="font-size:30px;">请登录:</p>
-    <form action="server" method="post" >
+    <form action="login" method="post" >
         您是:<select name="who" style="width:170px">
         <option value="1">教师</option>
         <option value="2">管理员</option>
-
     </select>
         <br>
         账号:<input type="text" name="account" /><br>

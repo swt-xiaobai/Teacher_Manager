@@ -4,8 +4,10 @@
 <%@ page import="org.apache.ibatis.session.SqlSessionFactoryBuilder" %>
 <%@ page import="org.apache.ibatis.session.SqlSession" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.sss.POJO.Teacher" %>
-<%@ page import="com.sss.mapper.UserMapper" %><%--
+
+<%@ page import="com.sss.mapper.UserMapper" %>
+<%@ page import="com.sss.users.user" %>
+<%@ page import="com.sss.sql.SqlServer" %><%--
   Created by IntelliJ IDEA.
   User: swt
   Date: 2025/6/7
@@ -34,24 +36,25 @@
 </head>
 <body>
 <%
-    /*1、加载mybatis的核心配置文件，获取SqlSessionFactory*/
+/*    *//*1、加载mybatis的核心配置文件，获取SqlSessionFactory*//*
     String resource = "mybatis-config.xml";
     InputStream inputStream = Resources.getResourceAsStream(resource);
     SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
-    /*2、获取SqlSession*/
-    List<Teacher> list;
+    *//*2、获取SqlSession*//*
+    List<user> list;
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
 
-/*        *//*3、执行sql*//*
-        list = sqlSession.selectList("sss.selectAll");*/
-        /*3.1获取UserMapper接口的代理对象*/
+*//*        *//**//*3、执行sql*//**//*
+        list = sqlSession.selectList("sss.selectAll");*//*
+        *//*3.1获取UserMapper接口的代理对象*//*
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         list = userMapper.selectAll();
-        /*4、释放资源*/
-    }
+        *//*4、释放资源*//*
+    }*/
 
 
+    List<user> list = SqlServer.getT();
 
 %>
 
@@ -72,7 +75,7 @@
     <tbody>
 
         <%
-            for (Teacher T: list) {
+            for (user T: list) {
 
                 %>
                     <tr>

@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>更改密码</title>
-<link rel="stylesheet" href="static/css/mian.css">
+<link rel="stylesheet" href="static/css/main.css">
 </head>
 <body class="login">
 	<div class="top">

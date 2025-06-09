@@ -8,8 +8,31 @@
 namespace:名称空间，需是Mapper接口，且二者必须在同一路径下
 -->
 <mapper namespace="com.sss.mapper.UserMapper">
-    <select id="selectAll" resultType="com.sss.POJO.Teacher">
+    <select id="selectAllT" resultType="com.sss.users.user">
         select * from teacher_table ;
     </select>
 
+    <!--
+    数据库表字段与实体类属性名不一致，则无法自动封装数据
+        *起别名：给不一样的列取别名，别名与属性名一致
+        select course_name as name, Time as time, teacher, class_time as classTime, Taccount from course_table;
+        *sql片段
+    <sql id="alias">
+        course_name as name, Time as time, teacher, class_time as classTime, Taccount
+    </sql>
+    -->
+
+    <select id="selectAllC" resultType="com.sss.users.course">
+        select course_name as name, Time as time, teacher, class_time as classTime, Taccount from course_table;
+    </select>
+    <update id="updateT">
+        UPDATE teacher_table set name=#{name} , age=#{age}, sex=#{sex}, der=#{der} , ders=#{ders} where account =#{account};
+    </update>
+    <insert id="addT">
+        INSERT INTO teacher_table (name,account,password,age,sex,der,ders)
+	           		 VALUES (#{name},#{account},#{password},#{age},#{sex},#{der},#{ders});
+    </insert>
+    <update id="updatePassword">
+        UPDATE teacher_table set password=#{newpassword} where account =#{account};
+    </update>
 </mapper>
