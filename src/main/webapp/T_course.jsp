@@ -1,13 +1,13 @@
 <%@page import="java.util.List"%>
 <%@page import="com.sss.users.course"%>
-<%@ page import="com.sss.sql.SqlServer" %>
+<%@ page import="com.sss.Dao.TeacherDao" %>
+<%@ page import="com.sss.Dao.CourseDao" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>授课查询</title>
-<link rel="stylesheet" href="mian.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/main.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/fontawesome.min.css">
 </head>
@@ -17,7 +17,7 @@
 		  <span style="color:#ffffff;font-size:40px;">  教师管理系统</span>
 			<a href="homePage.jsp" style = "text-decoration:none"><i class="fas fa-smile" /></i>我的信息</a>
 			<a href="T_course.jsp" style = "text-decoration:none"><i class="fas fa-book" ></i>授课查询</a>
-			<a href="Login_1.jsp" style = "text-decoration:none"><i class="fas fa-user-circle" ></i><%=session.getAttribute("user")%>:退出</a> 
+			<a href="index.jsp" style = "text-decoration:none"><i class="fas fa-user-circle" ></i><%=session.getAttribute("user")%>:退出</a>
 		</span>
 </div>
 
@@ -41,7 +41,7 @@
 	String when =request.getParameter("when");
 	
 	try{
-		List<course> list = SqlServer.getC();
+		List<course> list = CourseDao.getC();
 	
 	%>
 		<thead>

@@ -7,7 +7,7 @@
 
 <%@ page import="com.sss.mapper.UserMapper" %>
 <%@ page import="com.sss.users.user" %>
-<%@ page import="com.sss.sql.SqlServer" %><%--
+<%@ page import="com.sss.Dao.TeacherDao" %><%--
   Created by IntelliJ IDEA.
   User: swt
   Date: 2025/6/7
@@ -54,7 +54,7 @@
     }*/
 
 
-    List<user> list = SqlServer.getT();
+    List<user> list = TeacherDao.getT();
 
 %>
 

@@ -4,7 +4,7 @@
 pageEncoding="UTF-8"%>
 
 <%@page import="jakarta.servlet.http.HttpSession"%>
-<%@ page import="com.sss.sql.SqlServer" %>
+<%@ page import="com.sss.Dao.TeacherDao" %>
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="title" value="新用户注册"/>
@@ -12,7 +12,10 @@ pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<title>${title}</title></head>
+<title>${title}</title>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/main.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/fontawesome.min.css">
+</head>
 
 <body>
 	<%
@@ -40,7 +43,7 @@ pageEncoding="UTF-8"%>
 	}else {
 		boolean success = true;
 		try {
-			List<user> list = SqlServer.getT();
+			List<user> list = TeacherDao.getT();
 		
 		for(user us : list) {
 			
@@ -66,7 +69,7 @@ pageEncoding="UTF-8"%>
 		request.setAttribute("der",der);
 		request.setAttribute("ders",ders);
 		
-		SqlServer.addT(name,Integer.valueOf(age), sex, der, ders, account, password);
+		TeacherDao.addT(name,Integer.valueOf(age), sex, der, ders, account, password);
 		request.getRequestDispatcher("register.jsp").forward(request, response);
 		}
 		else{

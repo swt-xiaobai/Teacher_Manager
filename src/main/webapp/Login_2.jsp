@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>更改密码</title>
-<link rel="stylesheet" href="static/css/main.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/main.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/fontawesome.min.css">
 </head>
 <body class="login">
 	<div class="top">

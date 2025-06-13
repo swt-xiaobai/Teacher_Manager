@@ -11,7 +11,6 @@ namespace:名称空间，需是Mapper接口，且二者必须在同一路径下
     <select id="selectAllT" resultType="com.sss.users.user">
         select * from teacher_table ;
     </select>
-
     <!--
     数据库表字段与实体类属性名不一致，则无法自动封装数据
         *起别名：给不一样的列取别名，别名与属性名一致
@@ -21,18 +20,55 @@ namespace:名称空间，需是Mapper接口，且二者必须在同一路径下
         course_name as name, Time as time, teacher, class_time as classTime, Taccount
     </sql>
     -->
-
     <select id="selectAllC" resultType="com.sss.users.course">
         select course_name as name, Time as time, teacher, class_time as classTime, Taccount from course_table;
     </select>
+    <select id="selectAllCT" resultType="com.sss.users.ct">
+        select course_name as name, teacher, sex, account from c_t;
+    </select>
+    <select id="selectTByName" resultType="com.sss.users.user">
+        select * from teacher_table where name = #{name};
+    </select>
+    <select id="selectTByAccount" resultType="com.sss.users.user">
+        select * from teacher_table where name = #{account};
+    </select>
+
+
     <update id="updateT">
         UPDATE teacher_table set name=#{name} , age=#{age}, sex=#{sex}, der=#{der} , ders=#{ders} where account =#{account};
     </update>
-    <insert id="addT">
-        INSERT INTO teacher_table (name,account,password,age,sex,der,ders)
-	           		 VALUES (#{name},#{account},#{password},#{age},#{sex},#{der},#{ders});
-    </insert>
     <update id="updatePassword">
         UPDATE teacher_table set password=#{newpassword} where account =#{account};
     </update>
+    <update id="updateCToT">
+        update course_table set teacher = #{Tname},Taccount = #{account} where course_name = #{Cname};
+    </update>
+    <update id="updateC">
+        update course_table set Time=#{time} ,teacher =#{teacher} ,class_time =#{classTime} ,Taccount =#{Taccount} where course_name = #{name};
+    </update>
+
+
+    <insert id="addT">
+        INSERT INTO teacher_table (name,account,password,age,sex,der,ders) VALUES (#{name},#{account},#{password},#{age},#{sex},#{der},#{ders});
+    </insert>
+    <insert id="addCT">
+        insert into c_t (course_name,teacher,sex,account) VALUES (#{name},#{teacher},#{sex},#{account});
+    </insert>
+    <insert id="addC">
+        insert into course_table (course_name,Time,teacher,class_time,Taccount) VALUES (#{name},#{time},#{teacher},#{classTime},#{Taccount});
+    </insert>
+
+
+    <delete id="deleteT">
+        delete from teacher_table where account = #{account};
+    </delete>
+    <delete id="deleteCT">
+        delete from c_t where course_name=#{name} and account=#{account};
+    </delete>
+    <delete id="deleteACT">
+        delete from c_t where course_name=#{name};
+    </delete>
+    <delete id="deleteC">
+        delete from course_table where course_name = #{name};
+    </delete>
 </mapper>

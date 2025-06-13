@@ -1,7 +1,7 @@
-package com.sss.servers;
+package com.sss.Servlet;
 
 
-import com.sss.sql.SqlServer;
+import com.sss.Dao.TeacherDao;
 import com.sss.users.user;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpSession;
@@ -27,7 +27,7 @@ public class server {
         if(who.equals("1")) {
             try {
 
-                List<user> list = SqlServer.getT();
+                List<user> list = TeacherDao.getT();
 
                 for(user us : list) {
                     if(us.getAccount().equals(account)) {

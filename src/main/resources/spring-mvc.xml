@@ -13,7 +13,7 @@
 
     <!--配置注解扫描-->
     <context:component-scan base-package="com.sss.controller"/>
-    <context:component-scan base-package="com.sss.servers"/>
+    <context:component-scan base-package="com.sss.Servlet"/>
     <!--启动注解驱动-->
     <mvc:annotation-driven/>
     <!-- 放行静态资源（如 static 目录下的文件） -->
